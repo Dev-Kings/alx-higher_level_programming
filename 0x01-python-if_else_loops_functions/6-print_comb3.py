@@ -6,5 +6,7 @@ for first_num in range(0, 10):
         elif first_num == second_num:
             continue
         else:
-            print("{}{}".format(first_num, second_num), end=', ')
-print()
+            if second_num == range(10)[-1] and first_num == range(9)[-1]:
+                print("{}{}".format(first_num, second_num))
+            else:
+                print("{}{}".format(first_num, second_num), end=', ')

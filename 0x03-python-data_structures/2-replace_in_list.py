@@ -4,6 +4,6 @@ def replace_in_list(my_list, idx, element):
     if idx < 0 or idx >= list_length:
         return (my_list)
     else:
-       del(my_list[idx])
-       my_list.insert(idx, element)
-       return (my_list)
+        del(my_list[idx])
+        my_list.insert(idx, element)
+        return (my_list)

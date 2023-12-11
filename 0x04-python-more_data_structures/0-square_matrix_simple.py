@@ -1,6 +1,8 @@
 def square_matrix_simple(matrix=[]):
-    new_matrix = []
+    outer_matrix = []
     for row in matrix:
+        new_list = []
         for i in row:
-            new_matrix.append(i ** 2)
-    return (new_matrix)
+            new_list.append(i ** 2)
+        outer_matrix.append(new_list)
+    return (outer_matrix)

@@ -6,10 +6,12 @@ def list_division(my_list_1, my_list_2, list_length):
     quotient = 0
     while (index < list_length):
         try:
-            quotient = int(my_list_1[index]) / (my_list_2[index])
-        except TypeError:
-            quotient = 0
-            print("wrong type")
+            if (isinstance(my_list_1[index], int) and
+                    isinstance(my_list_2[index], int)):
+                quotient = int(my_list_1[index]) / int(my_list_2[index])
+            else:
+                quotient = 0
+                print("wrong type")
         except ZeroDivisionError:
             quotient = 0
             print("division by 0")

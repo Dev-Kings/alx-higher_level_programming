@@ -41,7 +41,7 @@ class Rectangle:
             TypeError: if not an integer.
             ValueError: if less than 0.
         """
-        return (self.__width)
+        return (self.__height)
 
     @height.setter
     def height(self, value):

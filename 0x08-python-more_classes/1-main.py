@@ -9,6 +9,7 @@ my_rectangle.height = 3
 print(my_rectangle.__dict__)
 
 try:
-    myrectangle = Rectangle(2, -3) 
+    #myrectangle = Rectangle(2, -3)
+    rect_2 = Rectangle("4", 3)
 except Exception as e:
     print("[{}] {}".format(e.__class__.__name__, e))

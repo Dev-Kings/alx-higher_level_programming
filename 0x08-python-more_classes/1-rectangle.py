@@ -57,7 +57,6 @@ class Rectangle:
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         elif value < 0:
-            print("{} <= 0".format(value))
             raise ValueError("height must be >= 0")
         else:
             self.__height = value

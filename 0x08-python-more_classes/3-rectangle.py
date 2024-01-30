@@ -93,5 +93,5 @@ class Rectangle:
     def __repr__(self):
         """String repr of rectangle class.
         """
-        return ("{}.{} object at {}".format(self.__class__.__module__,
+        return ("<{}.{} object at {}>".format(self.__class__.__module__,
                 self.__class__.__name__, hex(id(self))))

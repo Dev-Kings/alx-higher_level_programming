@@ -19,11 +19,11 @@ def add_integer(a, b=98):
     if type(b) not in [int, float]:
         raise TypeError("b must be an integer")
     try:
-        int(a)
+        int_a = int(a)
     except (OverflowError, ValueError):
         raise TypeError("a must be a number")
     try:
-        int(b)
+        int_b = int(b)
     except (OverflowError, ValueError):
         raise TypeError("b must be a number")
-    return (int(a) + int(b))
+    return (int_a + int_b)

@@ -1,0 +1,35 @@
+Test case for ``2-matrix_divided`` module.
+==========================================
+
+Using ``matrix_divided``
+
+
+This tests ``matrix_divided`` from 2-matrix_divided
+	>>> mat = __import__('2-matrix_divided').matrix_divided
+	>>> mat([[3, 4, 5],[6, 7, 8]], 2)
+	[[1.5, 2.0, 2.5], [3.0, 3.5, 4.0]]
+	>>> mat([[3.5677, 4, 5],[6.403, 7, 8]], 2)
+	[[1.78, 2.0, 2.5], [3.2, 3.5, 4.0]]
+	>>> mat([[3.5677, 4, 5],[6.403, 7, 8]], 0)
+	Traceback (most recent call last):
+  		...
+	ZeroDivisionError: division by zero
+	>>> mat([[3,2],[6,7]],'8')
+	Traceback (most recent call last):
+		...
+	TypeError: div must be a number
+	>>> mat([[3,2],[6]],3)
+	Traceback (most recent call last):
+		...
+	TypeError: Each row of the matrix must have the same size
+	>>> mat([[3,2],[6,7,7]],5)
+	Traceback (most recent call last):
+		...
+	TypeError: Each row of the matrix must have the same size
+	>>> mat([[3,2,6,7,7]],5)
+	[[0.6, 0.4, 1.2, 1.4, 1.4]]
+	>>> mat([[3,2],[6,7,[7]]],5)
+	Traceback (most recent call last):
+		...
+	TypeError: matrix must be a matrix (list of lists) of integers floats
+	>>>

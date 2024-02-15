@@ -1,0 +1,19 @@
+Test cases for ``3-say_my_name`` module.
+========================================
+
+Using ``say_my_name``
+
+
+This tests ``say_my_name`` from 3-say_my_name
+	>>> name = __import__('3-say_my_name').say_my_name
+	>>> name("Dev", "KK")
+	My name is Dev KK
+	>>> name(["Dev","Peter"], "KK")
+	Traceback (most recent call last):
+		...
+	TypeError: first_name must be a string
+	>>> name("Dev", [5])
+	Traceback (most recent call last):
+		...
+	TypeError: last_name must be a string
+	>>>

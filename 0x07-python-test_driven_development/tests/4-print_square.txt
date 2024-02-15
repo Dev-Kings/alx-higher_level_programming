@@ -1,0 +1,53 @@
+Test cases for ``4-print_square`` module.
+=========================================
+
+Using ``print_square``
+
+
+This test ``print_square`` from 4-print_square
+	>>> sq = __import__('4-print_square').print_square
+	>>> sq(4)
+	####
+	####
+	####
+	####
+	>>> sq(0)
+	>>> sq(1)
+	#
+	>>> sq(10)
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	>>> sq()
+	Traceback (most recent call last):
+		...
+	TypeError: print_square() missing 1 required positional argument: 'size'
+	>>> sq('4')
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+	>>> sq(4.6)
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+	>>> sq([[5,6],[7]])
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+	>>> sq(-5)
+	Traceback (most recent call last):
+		...
+	ValueError: size must be >= 0
+	>>> sq(0)
+	>>> sq(-4.2)
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+	>>>

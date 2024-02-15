@@ -31,5 +31,9 @@ This tests ``matrix_divided`` from 2-matrix_divided
 	>>> mat([[3,2],[6,7,[7]]],5)
 	Traceback (most recent call last):
 		...
-	TypeError: matrix must be a matrix (list of lists) of integers floats
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+	>>> mat([[3,2],[6,7,[7]]],5)
+	Traceback (most recent call last):
+        	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
 	>>>

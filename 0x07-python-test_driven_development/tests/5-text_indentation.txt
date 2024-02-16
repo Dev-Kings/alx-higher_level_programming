@@ -1,0 +1,75 @@
+"""
+Test cases for ``5-text_indentation`` module.
+=============================================
+
+Using ``text_indentation``
+
+
+This tests ``text_indentation`` from 5-text_indentation
+>>> txt = __import__('5-text_indentation').text_indentation
+>>> txt("GDSGFGjfjfj fkkfkfkdffdlld.kkkkkgkkkkdkjj. Grgdllgsfflgljdgg? ghfgkdgkdgd")
+GDSGFGjfjfj fkkfkfkdffdlld.
+<BLANKLINE>
+kkkkkgkkkkdkjj.
+<BLANKLINE>
+Grgdllgsfflgljdgg?
+<BLANKLINE>
+ghfgkdgkdgd
+>>> txt(45)
+Traceback (most recent call last):
+	...
+TypeError: text must be a string
+>>> txt('6')
+6
+>>> txt(["list","of","strings"])
+Traceback (most recent call last):
+	...
+TypeError: text must be a string
+>>> txt(len("string sample")*"another string.")
+another string.
+<BLANKLINE>
+another string.
+<BLANKLINE>
+another string.
+<BLANKLINE>
+another string.
+<BLANKLINE>
+another string.
+<BLANKLINE>
+another string.
+<BLANKLINE>
+another string.
+<BLANKLINE>
+another string.
+<BLANKLINE>
+another string.
+<BLANKLINE>
+another string.
+<BLANKLINE>
+another string.
+<BLANKLINE>
+another string.
+<BLANKLINE>
+another string.
+<BLANKLINE>
+>>> txt()
+Traceback (most recent call last):
+	...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+>>> txt("String here. Another string on new line.")
+String here.
+<BLANKLINE>
+Another string on new line.
+<BLANKLINE>
+>>> txt('''String printed as is.''')
+String printed as is.
+<BLANKLINE>
+>>> txt('''String spanning multiple lines. It is raw string since it has been \ wrapped by triple double quotes
+... The quotes ensures the string is printed as is.''')
+String spanning multiple lines.
+<BLANKLINE>
+It is raw string since it has been \ wrapped by triple double quotes
+The quotes ensures the string is printed as is.
+<BLANKLINE>
+>>>
+"""

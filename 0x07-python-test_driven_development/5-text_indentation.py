@@ -20,16 +20,16 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
     is_whitespace = False
-    end_of_line = False
+    # end_of_line = False
     for s in text:
         if s in ('.', '?', ':'):
             print(s)
             print()
             is_whitespace = True
-            end_of_line = True
+            # end_of_line = True
         elif s.isspace():
-            if end_of_line and is_whitespace:
-                end_of_line = False
+            if is_whitespace:
+                #end_of_line = False
                 pass
             elif is_whitespace:
                 print(s, end="")

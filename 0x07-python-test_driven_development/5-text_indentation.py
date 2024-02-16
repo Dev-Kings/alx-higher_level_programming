@@ -38,6 +38,7 @@ def text_indentation(text):
         else:
             print(s, end="")
             is_whitespace = False
+    print()
 
 
 if __name__ == "__main__":

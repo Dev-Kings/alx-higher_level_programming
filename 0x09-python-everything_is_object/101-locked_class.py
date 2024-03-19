@@ -15,7 +15,7 @@ class LockedClass:
             AttributeError: if name is not 'first_name'
         """
         if name != 'first_name':
-            raise AttributeError("'LockedClass' object has no attribute {}"
+            raise AttributeError("'LockedClass' object has no attribute '{}'"
                                  .format(name))
         else:
             self.__dict__['name'] = value

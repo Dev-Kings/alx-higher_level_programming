@@ -4,7 +4,6 @@ LockedClass = __import__('101-locked_class').LockedClass
 lc = LockedClass()
 lc.first_name = "John"
 try:
-    print(lc.dict)
     print(lc.last_name)
     lc.last_name = "Snow"
 except Exception as e:

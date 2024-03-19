@@ -18,4 +18,4 @@ class LockedClass:
             raise AttributeError("'LockedClass' object has no attribute '{}'"
                                  .format(name))
         else:
-            self.__dict__['name'] = value
+            self.__dict__[name] = value

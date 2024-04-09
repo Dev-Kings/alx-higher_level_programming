@@ -19,7 +19,3 @@ class LockedClass:
                                  .format(name))
         else:
             self.__dict__[name] = value
-
-    def dict(self):
-        """Returns the instance dictionary of attributes."""
-        return (self.__dict__)

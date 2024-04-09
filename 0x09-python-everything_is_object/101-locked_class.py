@@ -6,7 +6,7 @@ class LockedClass:
     """The class has setattr method.
     """
 
-    def __setattr__(self, name="first_name", value=None):
+    def __setattr__(self, name, value=None):
         """An override of setattr built-in.
         Args:
             name (string): instance attribute.
@@ -18,8 +18,4 @@ class LockedClass:
             raise AttributeError("'LockedClass' object has no attribute '{}'"
                                  .format(name))
         else:
-            self.__dict__[name] = value
-
-    def __dict__(self):
-        """Returns a dictionary of instance attributes."""
-        return (self.__dict__)
+            self.__dict__['first_name'] = value

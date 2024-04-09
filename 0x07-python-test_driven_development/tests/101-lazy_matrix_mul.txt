@@ -1,0 +1,32 @@
+Test cases for ``101-lazy_matrix_mul`` module.
+=====================================
+
+Using ``lazy_matrix_mul``
+
+
+This tests ``lazy_matrix_mul`` from 101-matrix_mul
+	>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+	>>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+	[[ 7 10]
+	 [15 22]]
+	>>> print(lazy_matrix_mul([[1, 2]], [[1, 2], [3, 4]]))
+	[[ 7 10]]
+	>>> print(lazy_matrix_mul([[1, 2]], [[1, 2], [3, "4"]]))
+	Traceback (most recent call last):
+		...
+	TypeError: m_b should contain only integers or floats
+	>>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2, 5], [3, 4]]))
+	Traceback (most recent call last):
+		...
+	TypeError: each row of m_b must be of the same size
+	>>> print(lazy_matrix_mul([[1.1, 2], [3.4, 4]], [[1.8, 2], [3, 4]]))
+	[[ 7.98 10.2 ]
+	 [18.12 22.8 ]]
+	>>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2, 5], [7, 3, 4]]))
+	[[15  8 13]
+	 [31 18 31]]
+	>>> print(lazy_matrix_mul([[1, 4, 2], [4, 5, 4]], [[8, 3], [3, 4]]))
+	Traceback (most recent call last):
+		...
+	ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
+	>>>

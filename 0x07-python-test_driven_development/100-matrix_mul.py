@@ -10,7 +10,7 @@ def matrix_mul(m_a, m_b):
     Raises:
         TypeError: if m_a or m_b is not a list,
                     if m_a or m_b is not a list of lists,
-                    if one element of the list of list is not an integer or 
+                    if one element of the list of list is not an integer or
                         float,
                     if m_a or m_b is not a rectangle.
         ValueError: if m_a or m_b is empty,
@@ -32,7 +32,7 @@ def matrix_mul(m_a, m_b):
     if (False in list_set):
         raise TypeError("m_b must be a list of lists")
     for a_row in m_a:
-       list_set.add(len(a_row) > 0)
+        list_set.add(len(a_row) > 0)
     if (False in list_set):
         raise ValueError("m_a can't be empty")
     for b_row in m_b:
@@ -45,8 +45,8 @@ def matrix_mul(m_a, m_b):
     if (False in list_set):
         raise TypeError("m_a should contain only integers or floats")
     for b_row in m_b:
-        for l in b_row:
-            list_set.add(type(l) in (int, float))
+        for lx in b_row:
+            list_set.add(type(lx) in (int, float))
     if (False in list_set):
         raise TypeError("m_b should contain only integers or floats")
     row_set = set()
@@ -70,4 +70,4 @@ def matrix_mul(m_a, m_b):
                     result_mat[i][j] += m_a[i][k] * m_b[k][j]
                 except Exception:
                     raise ValueError("m_a and m_b can't be multiplied")
-    return (result_mat)      
+    return (result_mat)

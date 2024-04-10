@@ -27,15 +27,13 @@ def text_indentation(text):
             is_whitespace = True
         elif s.isspace():
             if is_whitespace:
+                is_whitespace = False
                 pass
-            elif is_whitespace:
-                print(s, end="")
             else:
                 print(s, end="")
         else:
             print(s, end="")
             is_whitespace = False
-
 
 if __name__ == "__main__":
     doctest.testfile('tests/5-text_indentation.txt')

@@ -60,6 +60,14 @@ def matrix_mul(m_a, m_b):
     if len(row_set) != 1:
         raise TypeError("each row of m_b must be of the same size")
     row_set.clear()
+    a_row_set = set()
+    b_row_set = set()
+    for a_row in m_a:
+        a_row_set.add(len(a_row))
+    for b_row in m_b:
+        b_row_set.add(len(b_row))
+    if (a_row_set != b_row_set):
+        raise ValueError("m_a and m_b can't be multiplied")
     result_mat = [[0 for h in range(len(m_b[0]))] for h in range(len(m_a))]
 
     for i in range(len(m_a)):

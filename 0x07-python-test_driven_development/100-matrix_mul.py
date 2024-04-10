@@ -63,11 +63,11 @@ def matrix_mul(m_a, m_b):
 
     result_mat = [[0 for h in range(len(m_b[0]))] for h in range(len(m_a))]
 
-    for i in range(len(m_a)):
-        for j in range(len(m_b[0])):
-            for k in range(len(m_b)):
-                try:
+    try:
+        for i in range(len(m_a)):
+            for j in range(len(m_b[0])):
+                for k in range(len(m_b)):
                     result_mat[i][j] += m_a[i][k] * m_b[k][j]
-                except Exception:
-                    raise ValueError("m_a and m_b can't be multiplied")
+    except Exception:
+        raise ValueError("m_a and m_b can't be multiplied")
     return (result_mat)

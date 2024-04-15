@@ -9,4 +9,5 @@ class MyList(list):
 
     def print_sorted(self):
         """Custom function to print sorted list containing integers."""
-        print(sorted(self))
+        sorted_list = sorted(self);
+        print(sorted_list)

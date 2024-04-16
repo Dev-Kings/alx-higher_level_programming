@@ -4,6 +4,6 @@
 
 def read_file(filename=""):
     """This function reads a text file with UTF8 encoding."""
-    with open('my_file_0.txt', mode='r', encoding='utf-8') as my_file:
+    with open(filename, mode='r', encoding='utf-8') as my_file:
         for line in my_file:
             print(line, end='')

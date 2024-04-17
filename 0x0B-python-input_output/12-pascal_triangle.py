@@ -3,11 +3,12 @@
 12-pascal_triangle module
 """
 
+
 def pascal_triangle(n):
     """
     Returns a list of integers representing Pascal's triangle.
     Args:
-        n: (integer): 
+        n: (integer): Number of rows.
     Return:
         A list of lists of integers.
     """

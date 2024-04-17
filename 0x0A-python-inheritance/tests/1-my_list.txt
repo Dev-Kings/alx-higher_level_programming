@@ -9,10 +9,10 @@ This tests ``MyList`` from 1-my_list
 >>> my_list.append("4")
 >>> my_list.append("4", 5)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+	...
 TypeError: list.append() takes exactly one argument (2 given)
 >>> my_list.append()
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+	...
 TypeError: list.append() takes exactly one argument (0 given)
 >>>

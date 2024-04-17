@@ -6,8 +6,10 @@ class MyList(list):
     """Class inherits from super class list. The class then implements
     printing of list in ascending order.
     """
+    def __init__(self):
+        super().__init__(self)
 
     def print_sorted(self):
         """Custom function to print sorted list containing integers."""
-        sorted_list = sorted(self);
-        print(sorted_list)
+        list_sorted = sorted(self)
+        print(list_sorted)

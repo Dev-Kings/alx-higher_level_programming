@@ -13,4 +13,5 @@ def inherits_from(obj, a_class):
     Return:
         True if object is instance and not same class, False otherwise.
     """
-    return (isinstance(obj, a_class) and type(obj) != a_class)
+    checker = (isinstance(obj, a_class) and type(obj) != a_class)
+    return (checker)

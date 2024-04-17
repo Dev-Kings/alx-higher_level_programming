@@ -53,6 +53,7 @@ class Student:
             json: (dictionary): Dictionary of public attribute name
                                 and value.
         """
-        self.first_name = json['first_name']
-        self.last_name = json['last_name']
-        self.age = json['age']
+        if (len(json) != 0):
+            self.first_name = json['first_name']
+            self.last_name = json['last_name']
+            self.age = json['age']

@@ -6,7 +6,11 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 if __name__ == "__main__":
     filename = "add_item.json"
-    data = load_from_json_file(filename)
+    data = []
+    try:
+        data = load_from_json_file(filename)
+    except Exception as e:
+        pass
 
     for arg in sys.argv[1:]:
         data.append(arg)

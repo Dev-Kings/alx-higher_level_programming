@@ -8,8 +8,5 @@ def load_from_json_file(filename):
     Args:
         filename: (string): Name of file to write to.
     """
-    try:
-        with open(filename, mode='r', encoding='utf-8') as my_file:
-            return (json.load(my_file))
-    except (FileNotFoundError, json.JSONDecodeError):
-        return ([])
+    with open(filename, mode='r', encoding='utf-8') as my_file:
+        return (json.load(my_file))

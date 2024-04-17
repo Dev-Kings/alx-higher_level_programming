@@ -3,6 +3,7 @@
 Module with is_same_class function.
 """
 
+
 def is_same_class(obj, a_class):
     """
     Checks if object is instance of class.

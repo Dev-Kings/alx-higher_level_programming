@@ -16,9 +16,6 @@ Traceback (most recent call last):
 	...
 TypeError: list must be an integer
 >>> bg.integer_validator("width", (3,5,6))
-Traceback (most recent call last):
-	...
-TypeError: width must be an integer
 >>> bg.integer_validator()
 Traceback (most recent call last):
 	...

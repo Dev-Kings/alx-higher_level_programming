@@ -9,7 +9,7 @@ This tests ``BaseGeometry`` from 7-base_geometry
 	>>> bg.area()
 	Traceback (most recent call last):
 		...
-	Exception: area() is not implementeid
+	Exception: area() is not implemented
 	>>> bg = BaseGeometry()
 	>>> bg.integer_validator("name", "k")
 	Traceback (most recent call last):

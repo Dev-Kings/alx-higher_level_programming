@@ -6,7 +6,8 @@ Using ``MyList``
 This tests ``MyList`` from 1-my_list
 >>> MyList = __import__('1-my_list').MyList
 >>> my_list = MyList()
->>> my_list.append("4")
+>>> my_list.print_sorted()
+[]
 >>> my_list.append("4", 5)
 Traceback (most recent call last):
 	...
@@ -15,4 +16,12 @@ TypeError: append() takes exactly one argument (2 given)
 Traceback (most recent call last):
 	...
 TypeError: append() takes exactly one argument (0 given)
+>>> my_list.append(4)
+>>> my_list.append(4)
+>>> my_list.append(5)
+>>> my_list.append(2)
+>>> my_list.append(7)
+>>> my_list.append(6.2)
+>>> my_list.print_sorted()
+[2, 4, 4, 5, 6.2, 7]
 >>>

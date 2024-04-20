@@ -98,3 +98,9 @@ class Rectangle(Base):
         """ Prints Rectangle instance in stdout using character '#' """
         for h_iter in range(1, self.__height + 1):
             print("{}".format(self.__width * '#'))
+
+    def __str__(self):
+        """ Override of __str__ method of Rectangle class."""
+        string = "[{}] ({}) {}/{} - {}/{}"
+        return (string.format(self.__class__.__name__, self.id, self.__x,
+                self.__y, self.__width, self.__height))

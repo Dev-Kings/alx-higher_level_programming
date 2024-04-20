@@ -108,3 +108,39 @@ class Rectangle(Base):
         string = "[{}] ({}) {}/{} - {}/{}"
         return (string.format(self.__class__.__name__, self.id, self.__x,
                 self.__y, self.__width, self.__height))
+
+    def update(self, *args):
+        """ Assigns an argument to each attribute.
+        Args:
+            args: variable length of arguments.
+        """
+        if len(args) > 0:
+            for i in range(len(args)):
+                if i == 0:
+                    if type(args[i]) is not int:
+                        raise TypeError("id must be an integer")
+                    self.id = args[i]
+                if i == 1:
+                    if type(args[i]) is not int:
+                        raise TypeError("width must be an integer")
+                    if int(args[i]) <= 0:
+                        raise ValueError("width must be > 0")
+                    self.__width = int(args[i])
+                if i == 2:
+                    if type(args[i]) is not int:
+                        raise TypeError("height must be an integer")
+                    if int(args[i]) <= 0:
+                        raise ValueError("height must be > 0")
+                    self.__height = int(args[i])
+                if i == 3:
+                    if type(args[i]) is not int:
+                        raise TypeError("x must be an integer")
+                    if int(args[i]) < 0:
+                        raise ValueError("x must be >= 0")
+                    self.__x = int(args[i])
+                if i == 4:
+                    if type(args[i]) is not int:
+                        raise TypeError("y must be an integer")
+                    if int(args[i]) < 0:
+                        raise ValueError("y must be >= 0")
+                    self.__y = int(args[i])

@@ -93,3 +93,17 @@ class Square(Rectangle):
                     if int(value) < 0:
                         raise ValueError("y must be > 0")
                     self.y = value
+
+    def to_dictionary(self):
+        """ Converts class object to dictionary.
+        Return:
+            Dictionary representation of Square instance.
+        """
+        square_dict = {}
+        for key, value in self.__dict__.items():
+            clean_key = key.replace('_Rectangle__', '')
+            if clean_key == 'width' or clean_key == 'height':
+                square_dict['size'] = value
+            else:
+                square_dict[clean_key] = value
+        return (square_dict)

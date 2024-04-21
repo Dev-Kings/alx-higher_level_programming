@@ -175,3 +175,14 @@ class Rectangle(Base):
                     if int(value) < 0:
                         raise ValueError("y must be >= 0")
                     self.__y = value
+
+    def to_dictionary(self):
+        """ Converts class object to dictionary.
+        Returns:
+            Dictionary representation of Rectangle class.
+        """
+        rectangle_dict = {}
+        for key, value in self.__dict__.items():
+            clean_key = key.replace('_Rectangle__', '')
+            rectangle_dict[clean_key] = value
+        return (rectangle_dict)

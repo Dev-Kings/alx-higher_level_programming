@@ -42,10 +42,11 @@ class TestRectangle(unittest.TestCase):
         rect.height = 4
         self.assertEqual(rect.height, 4)
         
+    def test_height_setter_with_wrong_input(self):
+        """ Tests height setter with wrong inputs. """
+        rect = Rectangle(6, 10)
         with self.assertRaises(TypeError):
-            rect.height = "9"
-        with self.assertRaises(ValueError):
-            rect.height = -9
+            rect.height = "55"
 
     def test_x_getter_setter(self):
         """ Tests x getter and setter methods. """

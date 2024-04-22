@@ -79,3 +79,21 @@ class Base:
             dummy_square = Square(8)
             dummy_square.update(**dictionary)
             return (dummy_square)
+
+    @classmethod
+    def load_from_file(cls):
+        """ Loads JSON string representation of a class and converts to
+        a list of instances.
+        """
+        filename = cls.__name__ + ".json"
+        class_instances = []
+        try:
+            json_string = ''
+            with open(filename, encoding='utf-8') as file:
+                json_string = file.read()
+            list_dict_from_json = cls.from_json_string(json_string)
+            for item in list_dict_from_json:
+                class_instances.append(cls.create(**item))
+            return (class_instances)
+        except FileNotFoundError:
+            return (class_instances)

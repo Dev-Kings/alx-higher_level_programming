@@ -30,6 +30,30 @@ class TestRectangle(unittest.TestCase):
         rect = Rectangle(5, 10, 1, 2, 99)
         self.assertEqual(str(rect), "[Rectangle] (99) 1/2 - 5/10")
 
+    def test_width_getter_setter(self):
+        """ Tests width getter and setter methods. """
+        rect = Rectangle(5, 10)
+        rect.width = 8
+        self.assertEqual(rect.width, 8)
+
+    def test_height_getter_setter(self):
+        """ Tests height getter and setter methods. """
+        rect = Rectangle(5, 10)
+        rect.height = 4
+        self.assertEqual(rect.height, 4)
+
+    def test_x_getter_setter(self):
+        """ Tests x getter and setter methods. """
+        rect = Rectangle(5, 10)
+        rect.x = 14
+        self.assertEqual(rect.x, 14)
+
+    def test_y_getter_setter(self):
+        """ Tests y getter and setter methods. """
+        rect = Rectangle(5, 10)
+        rect.y = 17
+        self.assertEqual(rect.y, 17)
+
     def test_update(self):
         """ Tests update method. """
         rect = Rectangle(5, 10, 1, 2, 99)

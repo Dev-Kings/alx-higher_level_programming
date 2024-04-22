@@ -62,3 +62,20 @@ class Base:
             return (list_from_json)
         list_from_json = json.loads(json_string)
         return (list_from_json)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ Returns an instance with all attribute set.
+        Args:
+            dictionary: (dict): Dictionary representation of an instance.
+        """
+        if cls.__name__ == "Rectangle":
+            from models.rectangle import Rectangle
+            dummy_rectangle = Rectangle(5, 10)
+            dummy_rectangle.update(**dictionary)
+            return (dummy_rectangle)
+        elif cls.__name__ == "Square":
+            from models.square import Square
+            dummy_square = Square(8)
+            dummy_square.update(**dictionary)
+            return (dummy_square)

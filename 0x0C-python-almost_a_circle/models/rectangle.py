@@ -118,63 +118,18 @@ class Rectangle(Base):
         if len(args) > 0:
             for i in range(len(args)):
                 if i == 0:
-                    if type(args[i]) is not int:
-                        raise TypeError("id must be an integer")
-                    self.id = args[i]
+                    setattr(self, 'id', args[i])
                 elif i == 1:
-                    if type(args[i]) is not int:
-                        raise TypeError("width must be an integer")
-                    if int(args[i]) <= 0:
-                        raise ValueError("width must be > 0")
-                    self.__width = args[i]
+                    setattr(self, 'width', args[i])
                 elif i == 2:
-                    if type(args[i]) is not int:
-                        raise TypeError("height must be an integer")
-                    if int(args[i]) <= 0:
-                        raise ValueError("height must be > 0")
-                    self.__height = args[i]
+                    setattr(self, 'height', args[i])
                 elif i == 3:
-                    if type(args[i]) is not int:
-                        raise TypeError("x must be an integer")
-                    if int(args[i]) < 0:
-                        raise ValueError("x must be >= 0")
-                    self.__x = args[i]
+                    setattr(self, 'x', args[i])
                 elif i == 4:
-                    if type(args[i]) is not int:
-                        raise TypeError("y must be an integer")
-                    if int(args[i]) < 0:
-                        raise ValueError("y must be >= 0")
-                    self.__y = args[i]
+                    setattr(self, 'y', args[i])
         elif len(kwargs) > 0:
             for key, value in kwargs.items():
-                if key == 'id':
-                    if type(value) is not int:
-                        raise TypeError("id must be an integer")
-                    self.id = value
-                elif key == 'width':
-                    if type(value) is not int:
-                        raise TypeError("width must be an integer")
-                    if int(value) <= 0:
-                        raise ValueError("width must be > 0")
-                    self.__width = value
-                elif key == 'height':
-                    if type(value) is not int:
-                        raise TypeError("height must be an integer")
-                    if int(value) <= 0:
-                        raise ValueError("height must be > 0")
-                    self.__height = value
-                elif key == 'x':
-                    if type(value) is not int:
-                        raise TypeError("x must be an integer")
-                    if int(value) < 0:
-                        raise ValueError("x must be >= 0")
-                    self.__x = value
-                elif key == 'y':
-                    if type(value) is not int:
-                        raise TypeError("y must be an integer")
-                    if int(value) < 0:
-                        raise ValueError("y must be >= 0")
-                    self.__y = value
+                setattr(self, key, value)
 
     def to_dictionary(self):
         """ Converts class object to dictionary.

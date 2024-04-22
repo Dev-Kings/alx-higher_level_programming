@@ -6,6 +6,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
+
 class TestBase(unittest.TestCase):
     """ The class shall be used to create test cases for base.py. """
 
@@ -64,6 +65,10 @@ class TestBase(unittest.TestCase):
         """ Test loading JSON string from file to list of class instances. """
         obj_list = Base.load_from_file()
         self.assertIsInstance(obj_list, list)
+
+    def tearDown(self):
+        """ Reset __nb_objects. """
+        Base.__nb_objects = 0
 
 
 if __name__ == "__main__":

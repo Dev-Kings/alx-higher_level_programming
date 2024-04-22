@@ -51,7 +51,7 @@ class TestBase(unittest.TestCase):
         json_string = '[]'
         self.assertEqual(Base.from_json_string(json_string), [])
 
-    def test_create_rectangle(self):
+    def test_create(self):
         """ Test creation of rectangle and square. """
         dummy_rect_dict = {'width': 6, 'height': 12}
         rect = Rectangle.create(**dummy_rect_dict)

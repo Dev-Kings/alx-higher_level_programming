@@ -30,8 +30,11 @@ class TestBase(unittest.TestCase):
 
     def test_to_json_string(self):
         """ Test obj conversion to JSON string. """
-        base = Base()
-        self.assertEqual(base.to_json_string([]), "[]")
+        rect = Rectangle(1, 7, 3, 8)
+        dictionary = (rect.to_dictionary())
+        json_dictionary = Base.to_json_string(sorted(dictionary.items()))
+        self.assertEqual(json_dictionary, '[["height", 7], ["id", 6], '
+                                        '["width", 1], ["x", 3], ["y", 8]]')
 
     def test_save_to_file(self):
         """ Test file is created and saved """

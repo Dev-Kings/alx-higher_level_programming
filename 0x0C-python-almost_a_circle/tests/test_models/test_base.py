@@ -1,7 +1,12 @@
 #!/usr/bin/python3
 """ Unittest module for base.py """
 import unittest
+import sys
+import os
 
+current_dir = os.path.dirname(os.path.realpath(__file__))
+parent_dir = os.path.abspath(os.path.join(current_dir, '..', '..'))
+sys.path.append(parent_dir)
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -47,15 +52,12 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Base.from_json_string(json_string), [])
 
     def test_create_rectangle(self):
-        """ Test creation of rectangle. """
+        """ Test creation of rectangle and square. """
         dummy_rect_dict = {'width': 6, 'height': 12}
         rect = Rectangle.create(**dummy_rect_dict)
         self.assertIsInstance(rect, Rectangle)
         self.assertEqual(rect.width, 6)
         self.assertEqual(rect.height, 12)
-
-    def test_create_square(self):
-        """ Test creation of square. """
         dummy_square_dict = {'size': 7}
         sq = Square.create(**dummy_square_dict)
         self.assertIsInstance(sq, Square)

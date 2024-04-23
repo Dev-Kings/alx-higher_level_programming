@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Unittest module for base.py """
 import unittest
-
+import json
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -30,13 +30,24 @@ class TestBase(unittest.TestCase):
 
     def test_to_json_string(self):
         """ Test obj conversion to JSON string. """
-        rect = Rectangle(1, 7, 3, 8)
-        dictionary = (rect.to_dictionary())
-        json_dictionary = Base.to_json_string(sorted(dictionary.items()))
-        self.assertEqual(json_dictionary, '[["height", 7], ["id", 15], '
-                                        '["width", 1], ["x", 3], ["y", 8]]')
-        base = Base.to_json_string([ { 'id': 12 }])
-        self.assertEqual(base, '[{"id": 12}]')
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(11, 1, 3, 4)
+        dict1 = r1.to_dictionary()
+        dict2 = r2.to_dictionary()
+        json_dict1 = [{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]
+        json_dict2 = [{"x": 3, "width": 11, "id": 1, "height": 1, "y": 4}]
+        json_string = Base.to_json_string([dict1, dict2])
+        self.assertNotEqual(dict1, json_dict1)
+        self.assertNotEqual(dict2, json_dict2)
+        self.assertEqual(type(dict1), dict)
+        self.assertEqual(type(json_string), str)
+        self.assertEqual(Base.to_json_string(None), "[]")
+        self.assertEqual(Base.to_json_string([]), "[]")
+        self.assertTrue(type(Base.to_json_string(None)) is str)
+        self.assertTrue(type(Base.to_json_string("[]")) is str)
+        self.assertTrue(type(json_string), str)
+        d = json.loads(json_string)
+        self.assertEqual(d, [dict1, dict2])
 
     def test_save_to_file(self):
         """ Test file is created and saved """

@@ -35,7 +35,7 @@ class TestBase(unittest.TestCase):
         json_dictionary = Base.to_json_string(sorted(dictionary.items()))
         self.assertEqual(json_dictionary, '[["height", 7], ["id", 7], '
                                         '["width", 1], ["x", 3], ["y", 8]]')
-        base = Base.to_json_string([{'id': 12}])
+        base = Base.to_json_string([ { 'id': 12 }])
         self.assertEqual(base, '[{"id": 12}]')
 
     def test_save_to_file_that_exists(self):

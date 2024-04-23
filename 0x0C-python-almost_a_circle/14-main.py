@@ -14,3 +14,6 @@ if __name__ == "__main__":
     print(type(json_dictionary))
     js_d2 = Base.to_json_string([{'id': 49}])
     print(js_d2)
+    bss = Base.to_json_string(None)
+    print(bss)
+    print(type(bss))

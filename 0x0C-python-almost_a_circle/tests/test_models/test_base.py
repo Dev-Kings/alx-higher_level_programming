@@ -30,6 +30,8 @@ class TestBase(unittest.TestCase):
 
     def test_to_json_string(self):
         """ Test obj conversion to JSON string. """
+        base = Base.to_json_string(None)
+        self.assertEqual(type(base), str)
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(11, 1, 3, 4)
         dict1 = r1.to_dictionary()

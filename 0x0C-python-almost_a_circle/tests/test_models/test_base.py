@@ -129,6 +129,15 @@ class TestBase(unittest.TestCase):
         self.assertNotEqual(id(list_sq[0]), id(list_sq_out[0]))
         self.assertEqual(str(list_sq[1]), str(list_sq[1]))
 
+    def test_load_from_empty_file(self):
+        """ Tests for load_from_file when empty. """
+        try:
+            os.remove("Rectangle.json")
+        except Exception:
+            pass
+        open("Rectangle.json", 'a').close()
+        self.assertEqual(Rectangle.load_from_file(), [])
+
     def tearDown(self):
         """ Reset __nb_objects. """
         Base.__nb_objects = 0

@@ -16,6 +16,17 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(sq.x, 0)
         self.assertEqual(sq.y, 0)
 
+        with self.assertRaises(TypeError):
+            Square("1")
+            Square(1, "2")
+            Square(1, 2, "3")
+
+        with self.assertRaises(ValueError):
+            Square(-1)
+            Square(1, -2)
+            Square(1, 2, -3)
+            Square(0)
+
     def test_str(self):
         """ Tests __str__ method. """
         sq = Square(5, 2, 3, 99)

@@ -38,7 +38,7 @@ class TestBase(unittest.TestCase):
         base = Base.to_json_string([ { 'id': 12 }])
         self.assertEqual(base, '[{"id": 12}]')
 
-    def test_save_to_file_that_exists(self):
+    def test_save_to_file(self):
         """ Test file is created and saved """
         base = Base()
         base.save_to_file([])
@@ -46,8 +46,6 @@ class TestBase(unittest.TestCase):
             file_data = file.read()
             self.assertEqual(file_data, "[]")
 
-    def test_save_to_file_that_is_absent(self):
-        """ Test saving to non-existent file. """
         r1 = Rectangle(10, 7, 2, 8)
         Rectangle.save_to_file([r1])
 

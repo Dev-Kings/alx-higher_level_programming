@@ -91,8 +91,7 @@ class TestBase(unittest.TestCase):
         except Exception:
             pass
 
-        sq = Square(1)
-        Square.save_to_file([sq])
+        Square.save_to_file([Square(1)])
         with open("Square.json", "r") as file:
             self.assertEqual(len(file.read()), 39)
 

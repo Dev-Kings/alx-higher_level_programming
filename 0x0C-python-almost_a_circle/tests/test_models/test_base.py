@@ -33,7 +33,7 @@ class TestBase(unittest.TestCase):
         rect = Rectangle(1, 7, 3, 8)
         dictionary = (rect.to_dictionary())
         json_dictionary = Base.to_json_string(sorted(dictionary.items()))
-        self.assertEqual(json_dictionary, '[["height", 7], ["id", 7], '
+        self.assertEqual(json_dictionary, '[["height", 7], ["id", 10], '
                                         '["width", 1], ["x", 3], ["y", 8]]')
         base = Base.to_json_string([ { 'id': 12 }])
         self.assertEqual(base, '[{"id": 12}]')
@@ -43,8 +43,7 @@ class TestBase(unittest.TestCase):
         base = Base()
         base.save_to_file([])
         with open("Base.json", mode="r", encoding="utf-8") as file:
-            file_data = file.read()
-            self.assertEqual(file_data, "[]")
+            self.assertEqual(file.read(), '[]')
 
         r1 = Rectangle(10, 7, 2, 8)
         Rectangle.save_to_file([r1])
@@ -61,6 +60,24 @@ class TestBase(unittest.TestCase):
             sorted_contents = file.read()
 
         expected_contents = '[{"height": 7, "id": 8, "width": 10, "x": 2, "y": 8}]'
+
+        Rectangle.save_to_file([Rectangle(1, 2)])
+        with open("Rectangle.json", "r") as file:
+            lines = file.readlines()
+
+        sorted_lines = sorted(lines)
+
+        with open("Rectangle.json", "w") as file:
+            file.writelines(sorted_lines)
+
+        with open("Rectangle.json", "r") as file:
+            sorted_contents = file.read()
+
+        expected_contents = '[{"height": 2, "id":3, "width": 1, "x": 0, "y": 0}]'
+        
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), '[]')
 
     def test_from_json_string(self):
         """ Test list from json string conversion. """
@@ -82,7 +99,12 @@ class TestBase(unittest.TestCase):
     def test_load_from_file(self):
         """ Test loading JSON string from file to list of class instances. """
         obj_list = Base.load_from_file()
-        self.assertIsInstance(obj_list, list)
+        self.assertEqual(obj_list, [])
+
+        Rectangle.save_to_file([Rectangle(10, 7, 2, 8)])
+        list_rectangles_output = Rectangle.load_from_file()
+
+        self.assertEqual(list_rectangles_output[0].height, 7)
 
     def tearDown(self):
         """ Reset __nb_objects. """

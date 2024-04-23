@@ -53,17 +53,6 @@ class TestSquare(unittest.TestCase):
         sq.y = 5
         self.assertEqual(sq.y, 5)
 
-    def test_save_to_file(self):
-        """ Tests Square.save_to_file method. """
-        sq = (2)
-        Square.save_to_file(None)
-        with open("Square.json", "r") as file:
-            self.assertEqual(file.read(), '[]')
-
-        Square.save_to_file([])
-        with open("Square.json", "r") as file:
-            self.assertEqual(file.read(), '[]')
-
     def test_update(self):
         """ Tests update method. """
         sq = Square(5, 2, 3, 99)

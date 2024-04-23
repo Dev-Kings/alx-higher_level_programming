@@ -33,7 +33,7 @@ class TestBase(unittest.TestCase):
         rect = Rectangle(1, 7, 3, 8)
         dictionary = (rect.to_dictionary())
         json_dictionary = Base.to_json_string(sorted(dictionary.items()))
-        self.assertEqual(json_dictionary, '[["height", 7], ["id", 10], '
+        self.assertEqual(json_dictionary, '[["height", 7], ["id", 11], '
                                         '["width", 1], ["x", 3], ["y", 8]]')
         base = Base.to_json_string([ { 'id': 12 }])
         self.assertEqual(base, '[{"id": 12}]')
@@ -79,13 +79,20 @@ class TestBase(unittest.TestCase):
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), '[]')
 
-        sq = (2)
         Square.save_to_file(None)
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), '[]')
+        try:
+            os.remove("Square.json")
+        except Exception:
+            pass
         Square.save_to_file([])
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), '[]')
+        sq = Square(1)
+        Square.save_to_file([sq])
+        with open("Square.json", "r") as file:
+            self.assertEqual(len(file.read()), 39)
 
     def test_from_json_string(self):
         """ Test list from json string conversion. """

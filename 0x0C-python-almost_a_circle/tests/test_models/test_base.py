@@ -33,18 +33,36 @@ class TestBase(unittest.TestCase):
         rect = Rectangle(1, 7, 3, 8)
         dictionary = (rect.to_dictionary())
         json_dictionary = Base.to_json_string(sorted(dictionary.items()))
-        self.assertEqual(json_dictionary, '[["height", 7], ["id", 6], '
+        self.assertEqual(json_dictionary, '[["height", 7], ["id", 7], '
                                         '["width", 1], ["x", 3], ["y", 8]]')
         base = Base.to_json_string([{'id': 12}])
         self.assertEqual(base, '[{"id": 12}]')
 
-    def test_save_to_file(self):
+    def test_save_to_file_that_exists(self):
         """ Test file is created and saved """
         base = Base()
         base.save_to_file([])
         with open("Base.json", mode="r", encoding="utf-8") as file:
             file_data = file.read()
             self.assertEqual(file_data, "[]")
+
+    def test_save_to_file_that_is_absent(self):
+        """ Test saving to non-existent file. """
+        r1 = Rectangle(10, 7, 2, 8)
+        Rectangle.save_to_file([r1])
+
+        with open("Rectangle.json", "r") as file:
+            lines = file.readlines()
+        
+        sorted_lines = sorted(lines)
+
+        with open("Rectangle.json", "w") as file:
+            file.writelines(sorted_lines)
+
+        with open("Rectangle.json", "r") as file:
+            sorted_contents = file.read()
+
+        expected_contents = '[{"height": 7, "id": 8, "width": 10, "x": 2, "y": 8}]'
 
     def test_from_json_string(self):
         """ Test list from json string conversion. """

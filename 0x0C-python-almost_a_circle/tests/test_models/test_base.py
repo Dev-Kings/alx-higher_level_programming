@@ -58,6 +58,10 @@ class TestBase(unittest.TestCase):
         with open("Base.json", mode="r", encoding="utf-8") as file:
             self.assertEqual(file.read(), '[]')
 
+        Base.save_to_file(None)
+        with open("Base.json", "r") as file:
+            self.assertEqual(file.read(), '[]')
+
         Square.save_to_file([])
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), '[]')

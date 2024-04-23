@@ -11,3 +11,6 @@ if __name__ == "__main__":
 
     r1 = Rectangle(2, 2)
     r1.display()
+
+    r1 = Rectangle(2, 2, 3)
+    r1.display()

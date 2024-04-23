@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """ Unittest for rectangle.py """
+import sys
 import unittest
-
+from io import StringIO
 from models.rectangle import Rectangle
 
 
@@ -44,7 +45,26 @@ class TestRectangle(unittest.TestCase):
 
     def test_display(self):
         """ Tests display method. """
-        pass
+        rect = Rectangle(2, 2)
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        
+        rect.display()
+        sys.stdout = sys.__stdout__
+
+        displayed_output = captured_output.getvalue()
+        expected_output = "##\n##\n"
+        self.assertEqual(displayed_output, expected_output)
+
+        rect2 = Rectangle(2, 2, 3)
+        captured_output = StringIO()
+        sys.stdout = captured_output
+
+        rect2.display()
+        sys.stdout = sys.__stdout__
+        displayed_output = captured_output.getvalue()
+        expected_output = "   ##\n   ##\n"
+        self.assertEqual(displayed_output, expected_output)
 
     def test_str(self):
         """ Tests ___str__ method. """

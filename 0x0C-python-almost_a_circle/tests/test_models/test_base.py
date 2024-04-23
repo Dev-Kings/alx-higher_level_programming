@@ -33,7 +33,7 @@ class TestBase(unittest.TestCase):
         rect = Rectangle(1, 7, 3, 8)
         dictionary = (rect.to_dictionary())
         json_dictionary = Base.to_json_string(sorted(dictionary.items()))
-        self.assertEqual(json_dictionary, '[["height", 7], ["id", 11], '
+        self.assertEqual(json_dictionary, '[["height", 7], ["id", 15], '
                                         '["width", 1], ["x", 3], ["y", 8]]')
         base = Base.to_json_string([ { 'id': 12 }])
         self.assertEqual(base, '[{"id": 12}]')
@@ -120,6 +120,14 @@ class TestBase(unittest.TestCase):
         list_rectangles_output = Rectangle.load_from_file()
 
         self.assertEqual(list_rectangles_output[0].height, 7)
+
+        sq1 = Square(5)
+        sq2 = Square(7, 9, 1)
+        list_sq = [sq1, sq2]
+        Square.save_to_file(list_sq)
+        list_sq_out = Square.load_from_file()
+        self.assertNotEqual(id(list_sq[0]), id(list_sq_out[0]))
+        self.assertEqual(str(list_sq[1]), str(list_sq[1]))
 
     def tearDown(self):
         """ Reset __nb_objects. """

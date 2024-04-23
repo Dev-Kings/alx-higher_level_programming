@@ -15,6 +15,15 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 10)
         self.assertEqual(rect.x, 0)
         self.assertEqual(rect.y, 0)
+        
+        with self.assertRaises(TypeError):
+            Rectangle("1", 2)
+        with self.assertRaises(TypeError):
+            Rectangle(1, "2")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, "3")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, "3")
 
     def test_area(self):
         """ Tests area method. """

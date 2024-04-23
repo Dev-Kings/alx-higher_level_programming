@@ -45,6 +45,10 @@ class TestBase(unittest.TestCase):
         with open("Base.json", mode="r", encoding="utf-8") as file:
             self.assertEqual(file.read(), '[]')
 
+        Square.save_to_file([])
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), '[]')
+
         r1 = Rectangle(10, 7, 2, 8)
         Rectangle.save_to_file([r1])
 

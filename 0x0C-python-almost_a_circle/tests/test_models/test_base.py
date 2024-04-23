@@ -35,6 +35,8 @@ class TestBase(unittest.TestCase):
         json_dictionary = Base.to_json_string(sorted(dictionary.items()))
         self.assertEqual(json_dictionary, '[["height", 7], ["id", 6], '
                                         '["width", 1], ["x", 3], ["y", 8]]')
+        base = Base.to_json_string([{'id': 12}])
+        self.assertEqual(base, '[{"id": 12}]')
 
     def test_save_to_file(self):
         """ Test file is created and saved """

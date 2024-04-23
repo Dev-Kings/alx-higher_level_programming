@@ -79,6 +79,14 @@ class TestBase(unittest.TestCase):
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), '[]')
 
+        sq = (2)
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), '[]')
+        Square.save_to_file([])
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), '[]')
+
     def test_from_json_string(self):
         """ Test list from json string conversion. """
         json_string = '[]'

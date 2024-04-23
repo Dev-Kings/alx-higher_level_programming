@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ 15-main """
 from models.rectangle import Rectangle
+from models.square import Square
 
 if __name__ == "__main__":
 
@@ -17,5 +18,9 @@ if __name__ == "__main__":
 
     Rectangle.save_to_file([Rectangle(1, 2)])
     with open("Rectangle.json", "r") as file:
+        print(file.read())
+
+    sq1 = Square(5)
+    with open("Square.json", "r") as file:
         print(file.read())
 

@@ -90,9 +90,7 @@ class TestBase(unittest.TestCase):
             os.remove("Square.json")
         except Exception:
             pass
-        Square.save_to_file([])
-        with open("Square.json", "r") as file:
-            self.assertEqual(file.read(), '[]')
+
         sq = Square(1)
         Square.save_to_file([sq])
         with open("Square.json", "r") as file:

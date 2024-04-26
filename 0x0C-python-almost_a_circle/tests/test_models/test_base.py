@@ -50,6 +50,8 @@ class TestBase(unittest.TestCase):
         self.assertTrue(type(json_string), str)
         d = json.loads(json_string)
         self.assertEqual(d, [dict1, dict2])
+        json_string = Base.to_json_string([{'id': 12}])
+        self.assertEqual(json_string, '[{"id": 12}]')
 
     def test_save_to_file(self):
         """ Test file is created and saved """

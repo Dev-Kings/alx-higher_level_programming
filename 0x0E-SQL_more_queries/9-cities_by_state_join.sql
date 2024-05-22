@@ -2,5 +2,5 @@
 -- Use one SELECT element.
 SELECT cities.id, cities.name, states.name,
 FROM cities
-INNER JOIN states ON cities.state_id = state.id
+LEFT JOIN states ON states.id = cities.id
 ORDER BY cities.id ASC;

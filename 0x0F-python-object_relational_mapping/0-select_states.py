@@ -2,6 +2,9 @@
 """
 Connects to MySQL DB and fetch all states from 'states' table,
 sorted by ID, and print them.
+
+Usage:
+    python 0-select_states.py <mysql_username> <mysql_password> <database_name>
 """
 
 if __name__ == "__main__":

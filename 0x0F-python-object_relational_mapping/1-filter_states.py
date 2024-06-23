@@ -2,6 +2,9 @@
 """
 Connects to MySQL DB and fetch all states from 'states' table,
 starting with N(upper N), sorted by ID, and prints them.
+
+Usage:
+    python 1-filter_states.py <mysql_username> <mysql_password> <database_name>
 """
 
 if __name__ == "__main__":
@@ -18,7 +21,7 @@ if __name__ == "__main__":
 
     cursor = conn.cursor()
 
-    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id;"
+    query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id;"
 
     cursor.execute(query)
     states = cursor.fetchall()

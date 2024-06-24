@@ -28,7 +28,7 @@ if __name__ == "__main__":
     session = Session()
 
     # Query City objects, sorted by id, with state name included
-    cities = session.query(City).join(State).order_by(City.id).all()
+    cities = session.query(City).order_by(City.id).all()
 
     # Print the results
     for city in cities:

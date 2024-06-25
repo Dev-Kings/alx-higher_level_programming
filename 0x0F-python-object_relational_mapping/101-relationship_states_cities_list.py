@@ -29,8 +29,7 @@ if __name__ == "__main__":
     session = Session()
 
     # Query all State objects and their corresponding City objects
-    states = session.query(State).outerjoin(City).order_by(State.id,
-                                                           City.id).all()
+    states = session.query(State).order_by(State.id).all()
 
     # Print the results
     for state in states:

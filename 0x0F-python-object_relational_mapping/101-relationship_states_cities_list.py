@@ -28,11 +28,8 @@ if __name__ == "__main__":
     # Create a Session
     session = Session()
 
-    # Query all State objects and their corresponding City objects
-    states = session.query(State).order_by(State.id).all()
-
-    # Print the results
-    for state in states:
+    # Query State objects and their City objects and print the results
+    for state in session.query(State).order_by(State.id):
         print(f"{state.id}: {state.name}")
         for city in state.cities:
             print(f"    {city.id}: {city.name}")

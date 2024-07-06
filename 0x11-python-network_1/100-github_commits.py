@@ -15,7 +15,7 @@ if __name__ == "__main__":
     url = 'https://api.github.com/repos/{owner}/{repo}/commits'
 
     response = requests.get(url)
-    
+
     if response.status_code == 200:
         commits = response.json()[0:10]
 

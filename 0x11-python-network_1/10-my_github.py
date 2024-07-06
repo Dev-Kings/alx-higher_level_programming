@@ -13,10 +13,10 @@ if __name__ == "__main__":
     token = sys.argv[2]
     url = 'https://api.github.com/user'
 
-    response = requests.get(url, auth(username, token))
+    response = requests.get(url, auth=(username, token))
 
-    if response.status_code == 200:
+    try:
         user = response.json()
         print(user.get('id'))
-    else:
+    except Exception:
         print(None)

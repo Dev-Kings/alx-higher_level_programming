@@ -1,23 +1,36 @@
 #!/usr/bin/node
-// printing all characters of a Star Wars movie
-const request = require('request');
-const movieId = process.argv[2];
-const url = `https://swapi-api.alx-tools.com/api/films/${movieId}/`;
 
-request(url, function (error, result, body) {
+import request from 'request';
+
+const movieId = process.argv[2];
+const url = 'https://swapi-api.alx-tools.com/api/films';
+const fullURL = `${url}/${movieId}`;
+
+request(fullURL, (error, response, body) => {
   if (error) {
-    console.error(error);
+    console.error('Error:', error);
     return;
   }
+  const data = JSON.parse(body);
+  const characters = data.characters;
 
-  const characters = JSON.parse(body).characters;
-  characters.forEach(characterUrl => {
-    request(characterUrl, function (characterErr, characterRes, characterBody) {
-      if (characterErr) {
-        console.error(characterErr);
+  // Function to fetch and print each character in order
+  function printCharacter (index) {
+    if (index >= characters.length) return;
+
+    request(characters[index], (error, response, body) => {
+      if (error) {
+        console.error('Error:', error);
         return;
       }
-      console.log(JSON.parse(characterBody).name);
+
+      const characterData = JSON.parse(body);
+      console.log(characterData.name);
+
+      // Recursively call printCharacter for the next character
+      printCharacter(index + 1);
     });
-  });
+  }
+
+  printCharacter(0);
 });
